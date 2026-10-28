@@ -1,0 +1,22 @@
+:root {
+  --bs-primary: #1fbf92;
+  --bs-primary-rgb: 31, 191, 146;
+  --bs-body-bg: #c7d2d9;
+  --bs-body-color: #12293a;
+  --color-navy: #12293a;
+  --color-green-dark: #025949;
+  --color-green-light: #6cd9ba;
+}
+
+.btn-primary {
+  --bs-btn-bg: #1fbf92;
+  --bs-btn-border-color: #1fbf92;
+  --bs-btn-hover-bg: #025949;
+  --bs-btn-hover-border-color: #025949;
+  --bs-btn-color: #12293a;
+  --bs-btn-hover-color: #fff;
+}
+
+.bg-navy {
+  background-color: var(--color-navy);
+}
