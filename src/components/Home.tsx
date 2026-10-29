@@ -61,14 +61,7 @@ export default function Home() {
             )}
           </ul>
         </div>
-      ) : (
-        <div className="container mt-4">
-          <div className="alert alert-info d-flex justify-content-between align-items-center mb-0">
-            <span>Inicia sesión para guardar tus libros favoritos.</span>
-            <button className="btn btn-primary btn-sm" onClick={login}>Iniciar sesión</button>
-          </div>
-        </div>
-      )}
+      ) : ()}
 
       <main>
         {fav.error && (

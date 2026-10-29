@@ -67,7 +67,7 @@ export default function BookForm({ book, categories, authors, saving, error, onS
       publishedYear: form.publishedYear ? Number(form.publishedYear) : null,
       authorId: Number(form.authorId),
       categoryId: Number(form.categoryId),
-      pdfBase64: removePdf ? "" : pdfBase64, // undefined = no cambia
+      pdfBase64: removePdf ? "" : pdfBase64,
     });
   };
 

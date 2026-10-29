@@ -5,7 +5,7 @@ export function fileToBase64(file: File): Promise<string> {
     const reader = new FileReader();
     reader.onload = () => {
       const result = String(reader.result);
-      resolve(result.slice(result.indexOf(",") + 1)); // quita "data:application/pdf;base64,"
+      resolve(result.slice(result.indexOf(",") + 1));
     };
     reader.onerror = () => reject(reader.error);
     reader.readAsDataURL(file);
