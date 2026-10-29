@@ -11,7 +11,7 @@ const PLACEHOLDER = "/images/images (1).jfif";
 
 export default function BookDetail() {
   const { id } = useParams();
-  const { authenticated, login } = useAuth();
+  const { authenticated } = useAuth();
   const fav = useFavorites();
 
   const [book, setBook] = useState<Book | null>(null);
