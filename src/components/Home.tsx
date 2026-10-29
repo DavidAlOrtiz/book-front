@@ -11,7 +11,7 @@ import BookGrid from "../components/BookGrid";
 type View = "catalog" | "favorites" | "admin";
 
 export default function Home() {
-  const { authenticated, isAdmin, login } = useAuth();
+  const { authenticated, isAdmin } = useAuth();
 
   const [view, setView] = useState<View>("catalog");
   const [categoryId, setCategoryId] = useState<number | undefined>();
@@ -61,7 +61,7 @@ export default function Home() {
             )}
           </ul>
         </div>
-      ) : ()}
+      ) : (<p></p>)}
 
       <main>
         {fav.error && (
