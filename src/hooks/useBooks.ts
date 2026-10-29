@@ -3,7 +3,6 @@ import { booksApi } from "../api/books";
 import type { Book } from "../types";
 
 export function useBooks(categoryId?: number, title?: string) {
-    
   const [books, setBooks] = useState<Book[]>([]);
   const [page, setPage] = useState(0);
   const [last, setLast] = useState(true);
@@ -32,7 +31,6 @@ export function useBooks(categoryId?: number, title?: string) {
     },
     [categoryId, title],
   );
-
   useEffect(() => {
     load(0);
   }, [load]);
@@ -41,5 +39,7 @@ export function useBooks(categoryId?: number, title?: string) {
     if (!loading && !last) load(page + 1);
   };
 
-  return { books, loading, error, hasMore: !last, loadMore };
+  const reload = useCallback(() => load(0), [load]);
+
+  return { books, loading, error, hasMore: !last, loadMore, reload };
 }

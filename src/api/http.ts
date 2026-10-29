@@ -39,3 +39,18 @@ export async function http<T>(path: string, options: RequestInit = {}): Promise<
 
   return response.status === 204 ? (undefined as T) : response.json();
 }
+
+export async function fetchBlob(path: string): Promise<Blob> {
+  const headers = new Headers({ Accept: "application/pdf, application/json" });
+
+  if (keycloak.authenticated) {
+    await keycloak.updateToken(30);
+    headers.set("Authorization", `Bearer ${keycloak.token}`);
+  }
+
+  const response = await fetch(`${API_URL}${path}`, { headers });
+  if (!response.ok) {
+    throw new ApiError(response.status, response.statusText || "No se pudo descargar el PDF");
+  }
+  return response.blob();
+}

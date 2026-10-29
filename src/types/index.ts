@@ -5,6 +5,7 @@ export interface Book {
   price: number;
   coverUrl: string | null;
   publishedYear: number | null;
+  hasPdf: boolean;
   authorId: number;
   authorName: string;
   categoryId: number;
@@ -34,4 +35,15 @@ export interface PageResponse<T> {
 export interface FavoriteResponse {
   book: Book;
   addedAt: string;
+}
+
+export interface BookRequest {
+  title: string;
+  description: string;
+  price: number;
+  coverUrl: string;
+  publishedYear: number | null;
+  authorId: number;
+  categoryId: number;
+  pdfBase64?: string;
 }

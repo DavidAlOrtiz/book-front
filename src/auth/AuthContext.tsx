@@ -7,6 +7,7 @@ interface AuthState {
   isAdmin: boolean;
   username?: string;
   login: () => void;
+  register: () => void;
   logout: () => void;
 }
 
@@ -33,9 +34,10 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   const value: AuthState = {
     ready,
     authenticated,
-    isAdmin: authenticated && keycloak.hasRealmRole("admin"),
+    isAdmin: authenticated && keycloak.hasRealmRole("ADMIN"),
     username: keycloak.tokenParsed?.preferred_username as string | undefined,
-    login: () => keycloak.login({ redirectUri: window.location.origin }),
+   login: () => keycloak.login({ redirectUri: window.location.origin }),
+    register: () => keycloak.register({ redirectUri: window.location.origin }),
     logout: () => keycloak.logout({ redirectUri: window.location.origin }),
   };
 
