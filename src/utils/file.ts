@@ -1,6 +1,7 @@
 export const MAX_PDF_BYTES = 10 * 1024 * 1024;
 
 export function fileToBase64(file: File): Promise<string> {
+  console.log("waiting for the pdf info");
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
     reader.onload = () => {

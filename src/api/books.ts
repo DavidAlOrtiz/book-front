@@ -9,6 +9,7 @@ export const booksApi = {
     if (params.title) query.set("title", params.title);
     query.set("page", String(params.page ?? 0));
     query.set("size", String(params.size ?? 6));
+    console.log("filters ", query)
     return http<PageResponse<Book>>(`/book?${query}`);
   },
 

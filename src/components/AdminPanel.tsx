@@ -22,10 +22,12 @@ export default function AdminPanel({ onChanged }: Props) {
 
   const load = useCallback(async (p: number) => {
     try {
+      console.log("call books info");
       const data = await booksApi.search({ page: p, size: 8 });
       setBooks(data.content);
       setPage(data.page);
       setTotalPages(data.totalPages);
+      console.log("The books info was loaded sucessfully");
     } catch (e) {
       setError(e instanceof Error ? e.message : "Error al cargar libros");
     }
